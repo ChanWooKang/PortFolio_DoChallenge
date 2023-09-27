@@ -41,6 +41,7 @@ namespace DataContents
         public float tracespeed;
         public float tracerange;
         public float attackrange;
+        public float attackdelay;
         public int mingold;
         public int maxgold;
         public float exp;

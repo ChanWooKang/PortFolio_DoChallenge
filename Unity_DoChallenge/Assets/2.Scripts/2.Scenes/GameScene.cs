@@ -9,6 +9,8 @@ public class GameScene : BaseScene
     {
         base.Init();
         CurrScene = eScene.GameScene;
+
+        Managers._data.LoadGameData();
     }
 
     public override void Clear()
@@ -17,6 +19,11 @@ public class GameScene : BaseScene
 
         //인벤토리 세이브
         Managers._data.SaveGameData();
+        SpawnManager._inst.Clear();
     }
 
+    void OnApplicationQuit()
+    {
+        Clear();
+    }
 }

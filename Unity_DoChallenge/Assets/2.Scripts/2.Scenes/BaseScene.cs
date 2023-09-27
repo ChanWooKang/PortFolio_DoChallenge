@@ -8,24 +8,14 @@ public class BaseScene : MonoBehaviour
     public eScene PrevScene { get; protected set; } = eScene.Unknown;
     public eScene CurrScene { get; protected set; } = eScene.Unknown;
 
-    [SerializeField] List<Texture2D> list_Cursor;
-
-    public List<Texture2D> ListCursor
-    {
-        get
-        {
-            if (list_Cursor == null)
-                list_Cursor = new List<Texture2D>();
-
-            return list_Cursor;
-        }
-    }
+    public List<CursorUnit> list_Cursor;
 
     void Awake() { Init(); }
-    
+
     protected virtual void Init()
     {
         PoolingManager._pool.LoadObjectPool();
+        Managers._scene.AddCursor();
     }
 
     public void SceneLoad(eScene scene)

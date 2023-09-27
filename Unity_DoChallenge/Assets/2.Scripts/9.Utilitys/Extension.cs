@@ -15,4 +15,8 @@ public static class Extension
     {
         PoolingManager.DestroyAPS(go);
     }
+    public static void BindEvent(this GameObject go, Action<PointerEventData> action, UIEvent type = UIEvent.Click) 
+    {
+        UI_Base.BindEvent(go, action, type); 
+    }
 }

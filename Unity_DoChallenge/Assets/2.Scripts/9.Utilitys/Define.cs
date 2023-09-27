@@ -7,7 +7,9 @@ namespace Define
     #region [ Enums ]
     public enum eCursor
     {
-        Default = 0,
+        Unknwon = 0,
+        Default,
+        Attack,
     }
 
     public enum eScene
@@ -19,9 +21,9 @@ namespace Define
 
     public enum eSound
     {
-        Unknown,
-        BGM,
-        SFX
+        BGM = 0,
+        SFX,
+        Max_Cnt
     }
 
     public enum eLayer
@@ -39,7 +41,7 @@ namespace Define
     {
         Ground,
         Player,
-        Floor,
+        Monster,
         Interact
     }
 
@@ -53,11 +55,7 @@ namespace Define
 
     public enum UIEvent
     {
-        Click,
-        Drag,
-        DragBegin,
-        DragEnd,
-        Drop,
+        Click
     }
 
     public enum CameraMode
@@ -96,6 +94,15 @@ namespace Define
         Die
     }
 
+    public enum PlayerBools
+    {
+        Dead = 0,
+        ContinueAttack,
+        ActDodge,
+
+        Max_Cnt,
+    }
+
     public enum eSkill
     {
         Unknown = 0,
@@ -113,6 +120,16 @@ namespace Define
         Slime,
         TurtleShell,
         Max_Cnt
+    }
+    public enum MonsterState
+    {
+        Die,
+        Idle,
+        Patrol,
+        Sense,
+        Trace,
+        Attack,
+        Disable
     }
 
     public enum eCombo
@@ -170,6 +187,12 @@ namespace Define
         public float sValue;
     }
 
+    [System.Serializable]
+    public struct SpawnPoint
+    {
+        public Transform target;
+        public eMonster targetType;
+    }
     #endregion [ Struct ]
 
     #region [ Class ]
@@ -186,10 +209,16 @@ namespace Define
     }
 
     [System.Serializable]
+    public class CursorUnit
+    {
+        public eCursor type;
+        public Texture2D tex;
+    }
+
+    [System.Serializable]
     public class ItemWithWeight
     {
-        // SOItem
-
+        public SOItem item;
         public int weight;
     }
 

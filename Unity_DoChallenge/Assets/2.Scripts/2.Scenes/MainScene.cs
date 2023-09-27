@@ -9,8 +9,6 @@ public class MainScene : BaseScene
     {
         base.Init();
         CurrScene = eScene.MainScene;
-
-        Managers._scene.AddCursor();
     }
 
     public override void Clear()
