@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,7 +8,7 @@ public class UIManager
 {
     int _order = 10;
     Stack<UI_Popup> _popStack = new Stack<UI_Popup>();
-
+    public Action OnSetUIEvent = null;
     public GameObject Root
     {
         get
@@ -101,6 +102,7 @@ public class UIManager
 
     public void Clear()
     {
+        OnSetUIEvent = null;
         CloseAllPopupUI();
     }
 }
